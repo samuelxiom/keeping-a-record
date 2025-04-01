@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recently Rated | Keeping a Record</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Recently Rated Albums</h1>
+    <p class="subtitle">Check out your rating history below.</p>
+  </header>
+
+  <main class="feed-container">
+    <% if (albums.length === 0) { %>
+      <p>No albums have been rated yet. <a href="/">Go rate some!</a></p>
+    <% } else { %>
+      <% albums.forEach(a => { %>
+        <div class="feed-card">
+          <h2><%= a.album_name %></h2>
+          <p>by <%= a.artist %></p>
+          <p><strong>Avg Rating:</strong> <%= a.avg_rating %>/10</p>
+          <p><strong>Rated on:</strong> <%= a.date_rated %></p>
+          <h4>Track Ratings:</h4>
+          <% a.track_ratings.forEach(tr => { %>
+            <p><strong><%= tr.track %></strong> → <%= tr.rating %>/10</p>
+          <% }) %>
+        </div>
+      <% }) %>
+    <% } %>
+  </main>
+
+  <footer style="text-align:center; margin-top:20px;">
+    <p><a href="/">Rate Another Album</a></p>
+  </footer>
+</body>
+</html>

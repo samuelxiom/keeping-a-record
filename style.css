@@ -1,0 +1,188 @@
+/******************************************
+  KEEPING A RECORD
+  "Apple-like" advanced minimal black/white
+  with big negative space & transitions
+*******************************************/
+
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* Subtle gradient overlay for a fancy effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at top left, #111, #000 60%);
+  z-index: -1;
+}
+
+/* ===== HEADERS & FOOTERS ===== */
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+header h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+.subtitle {
+  color: #bbb;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  margin-top: auto;
+  background: #111;
+  font-size: 0.9rem;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #ddd;
+}
+
+/* ===== MAIN ===== */
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ===== INDEX (SEARCH) ===== */
+.intro-section {
+  text-align: center;
+  margin-top: 40px;
+}
+.intro-text {
+  margin-bottom: 20px;
+}
+.search-form-artist-album {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.search-form-artist-album input {
+  width: 300px;
+  padding: 12px;
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+}
+.search-form-artist-album button {
+  padding: 12px 20px;
+  background: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+.search-form-artist-album button:hover {
+  background: #444;
+  color: #fff;
+}
+
+/* ===== ALBUM PAGE ===== */
+.album-main {
+  text-align: center;
+}
+.album-cover {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  margin: 30px 0;
+  border-radius: 16px;
+  border: 2px solid #333;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+}
+.no-cover {
+  color: #f00;
+  margin: 30px 0;
+}
+.album-info {
+  margin: 20px auto;
+  max-width: 600px;
+  line-height: 1.6;
+  text-align: left;
+}
+.summary {
+  margin-top: 10px;
+  color: #ccc;
+}
+.rating-form {
+  margin-top: 30px;
+}
+.track-rate-row {
+  margin: 10px auto;
+  max-width: 400px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+.track-rate-row input {
+  width: 60px;
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+}
+.submit-rating-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.submit-rating-btn:hover {
+  background: #444;
+  color: #fff;
+}
+
+/* ===== FEED PAGE ===== */
+.feed-container {
+  margin-top: 20px;
+}
+.feed-card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.feed-card h2 {
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+.feed-card p {
+  color: #bbb;
+  margin-bottom: 6px;
+}
+.feed-card h4 {
+  margin: 10px 0 4px;
+}

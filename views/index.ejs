@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Keeping A Record – Home</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Keeping A Record</h1>
+    <p class="subtitle">Discover, Rate & Archive Your Favorite Albums</p>
+  </header>
+
+  <main>
+    <section class="intro-section">
+      <div class="intro-text">
+        <h2>Search for an Album</h2>
+        <p>Enter the Artist & Album you want to explore and rate.</p>
+      </div>
+      <form action="/search" method="GET" class="search-form-artist-album">
+        <input 
+          type="text" 
+          name="artist" 
+          placeholder="Artist (e.g. Kanye West)" 
+          required
+        />
+        <input 
+          type="text" 
+          name="album" 
+          placeholder="Album (e.g. Yeezus)" 
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Keeping A Record – Created with Apple-like minimalism</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= albumName %> by <%= artist %> | Keeping a Record</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1><%= albumName %></h1>
+    <p class="subtitle">by <%= artist %></p>
+  </header>
+
+  <main class="album-main">
+    <% if (coverImage) { %>
+      <img class="album-cover" src="<%= coverImage %>" alt="Album Cover" />
+    <% } else { %>
+      <p class="no-cover">No cover available</p>
+    <% } %>
+
+    <div class="album-info">
+      <p><strong>Genre:</strong> <%= genre %></p>
+      <p><strong>Release Date:</strong> <%= releaseDate %></p>
+      <p class="summary"><%= summary %></p>
+    </div>
+
+    <h2>Tracklist</h2>
+    <% if (tracks.length > 0) { %>
+      <ol>
+        <% tracks.forEach((t, i) => { %>
+          <li><%= t %></li>
+        <% }) %>
+      </ol>
+    <% } else { %>
+      <p>No track data found.</p>
+    <% } %>
+
+    <h2>Rate Each Track</h2>
+    <form action="/rate" method="post" class="rating-form">
+      <input type="hidden" name="albumName" value="<%= albumName %>" />
+      <input type="hidden" name="artist" value="<%= artist %>" />
+
+      <% tracks.forEach((track, i) => { %>
+        <div class="track-rate-row">
+          <label>
+            <%= i+1 %>. <%= track %>
+            <input type="hidden" name="tracks" value="<%= track %>" />
+            <input 
+              type="number" 
+              name="rating-<%= i %>" 
+              min="0" 
+              max="10" 
+              step="0.1" 
+              class="rating-input"
+            />
+          </label>
+        </div>
+      <% }) %>
+
+      <button type="submit" class="submit-rating-btn">Submit Ratings</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/">Search Again</a> | 
+      <a href="/feed">View Rated Albums</a>
+    </p>
+  </footer>
+</body>
+</html>
